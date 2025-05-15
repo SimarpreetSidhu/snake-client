@@ -1,4 +1,10 @@
 const connect = require("./client");
+const { MOVE_DOWN_KEY,
+  MOVE_LEFT_KEY,
+  MOVE_RIGHT_KEY,
+  MOVE_UP_KEY,
+  QUIT_KEY,
+  SEND_MSG_KEY } = require("./constants");
 let conn = connect();
 
 const setUpInput = function() {
@@ -11,17 +17,17 @@ const setUpInput = function() {
 };
 
 const handleUserInput = function(key) {
-  if (key === "\u0003") {
+  if (key === QUIT_KEY) {
     process.exit();
-  } else if (key === "\u0077") {
+  } else if (key === MOVE_UP_KEY) {
     conn.write(`Move: up`);
-  } else if (key === "\u0061") {
+  } else if (key === MOVE_LEFT_KEY) {
     conn.write(`Move: left`);
-  } else if (key === "\u0073") {
+  } else if (key === MOVE_DOWN_KEY) {
     conn.write(`Move: down`);
-  } else if (key === "\u0064") {
+  } else if (key === MOVE_RIGHT_KEY) {
     conn.write(`Move: right`);
-  } else if (key === "\u006d") { // if key is m , send message
+  } else if (key === SEND_MSG_KEY) { // if key is m , send message
     conn.write(`Say: Goo`);
   }
 };
