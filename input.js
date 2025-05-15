@@ -21,6 +21,8 @@ const handleUserInput = function(key) {
     conn.write(`Move: down`);
   } else if (key === "\u0064") {
     conn.write(`Move: right`);
+  } else if (key === "\u006d") { // if key is m , send message
+    conn.write(`Say: Goo`);
   }
 };
 
