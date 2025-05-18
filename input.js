@@ -16,7 +16,7 @@ const setUpInput = function() {
   return stdin;
 };
 
-const handleUserInput = function(key) {
+const handleUserInput = function(key,msg) {
   if (key === QUIT_KEY) {
     process.exit();
   } else if (key === MOVE_UP_KEY) {
@@ -27,8 +27,8 @@ const handleUserInput = function(key) {
     conn.write(`Move: down`);
   } else if (key === MOVE_RIGHT_KEY) {
     conn.write(`Move: right`);
-  } else if (key === SEND_MSG_KEY) { // if key is m , send message
-    conn.write(`Say: Goo`);
+  } else if (key === SEND_MSG_KEY) {
+    conn.write(`Say: ${msg}`);
   }
 };
 
